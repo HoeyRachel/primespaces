@@ -5,8 +5,9 @@ body,
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0px;
+  background-color: #F2EFE9;
 }
 
 img {
@@ -28,12 +29,13 @@ Button
 
 .btn {
   display: inline-block;
+  font-family: 'Roboto', sans-serif;
   padding: 10px 20px;
-  border-color: #014041;
+  border-color: #020402;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #00acb0;
-  color: #f8f8f8;
+  background-color: #252627;
+  color: #C8963E;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
@@ -55,7 +57,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
+  background-color: #020402;
   text-decoration: none;
 }
 
@@ -72,8 +74,8 @@ Button
 
 .btn_asLink:hover {
   background-color: transparent;
-  border-color: #008183;
-  color: #008183;
+  border-color: #020402;
+  color: #C8963E;
 }
 
 /* --------------------------------------------------------------------------------
