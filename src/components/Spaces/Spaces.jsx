@@ -16,7 +16,7 @@ function Spaces(props) {
   const [room_name, setRoom_Name] = useState('');
   const user = useSelector((store) => store.user)
   const [image_path, setImage_Path] = useState('');
-  const [is_complete, setIs_Complete] = useState('');
+  const [is_complete, setIs_Complete] = useState('false');
 
   useEffect(()=>{
     dispatch({ type: 'FETCH_SPACES',

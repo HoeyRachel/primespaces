@@ -23,7 +23,15 @@ const router = express.Router();
  * POST route template
  */
 router.post('/', (req, res) => {
-  // POST route code here
+  console.log ('in spacesRouter.POST')
+  const addSpacesQuery = `INSERT INTO "spaces" ("user_id", "room_name", "image_path", "is_complete") VALUES ($1, $2, $3, $4)`;
+  values = [req.body.user_id, req.body.room_name, req.body.image_path, req.body.is_complete];
+  pool.query( addSpacesQuery, values).then( (results)=>{
+    res.sendStatus( 200);
+  }).catch( (err)=>{
+    console.log( err);
+    res.send( 500);
+  })
 });
 
 module.exports = router;
