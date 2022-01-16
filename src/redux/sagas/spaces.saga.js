@@ -11,8 +11,18 @@ function* fetchSpaces() {
   }
 }
 
+function* postSpaces(action) {
+  try {
+    const spaces = yield axios.post('/api/spaces', action.payload);
+    yield put({ type: 'FETCH_SPACES', payload: spaces.data });
+  } catch (error) {
+    console.log('Spaces POST request failed', error);
+  }
+}
+
 function* spacesSaga() {
   yield takeLatest('FETCH_SPACES', fetchSpaces);
+  yield takeLatest('POST_SPACE', postSpaces);
 }
 
 export default spacesSaga;
