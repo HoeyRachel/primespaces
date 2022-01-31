@@ -1,4 +1,4 @@
-const spacesReducer = (state = {}, action) => {
+const spacesReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_SPACES':
       return action.payload;

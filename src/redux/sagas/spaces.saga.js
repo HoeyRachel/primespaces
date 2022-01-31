@@ -20,9 +20,20 @@ function* postSpaces(action) {
   }
 }
 
+function *deleteSpace( action ){
+  console.log( 'in *deleteSaga:', action.payload );
+  try {
+    const response = yield axios.delete(`/api/spaces/delete/${action.payload}`);
+    yield put({type: 'FETCH_SPACES', payload: store.user.id})
+  } catch (err) {
+      console.log('error:', err);
+  }
+}
+
 function* spacesSaga() {
   yield takeLatest('FETCH_SPACES', fetchSpaces);
   yield takeLatest('POST_SPACE', postSpaces);
+  yield takeLatest('DELETE_SPACE', deleteSpace);
 }
 
 export default spacesSaga;

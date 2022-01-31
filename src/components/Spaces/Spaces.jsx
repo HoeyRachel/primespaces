@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import {useHistory} from 'react-router-dom';
 
 
+
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name Spaces with the name for the new component.
@@ -11,12 +12,12 @@ function Spaces(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('Prime Spaces');
   const dispatch = useDispatch();
-  const [room_name, setRoom_Name] = useState('');
+  const [space_name, setSpace_Name] = useState('');
   const user = useSelector((store) => store.user)
   const [image_path, setImage_Path] = useState('');
-  const [is_complete, setIs_Complete] = useState('false');
+  const [is_complete, setIs_Complete] = useState('1');
+  const spaces = useSelector ((store) => store.spaces);
 
   useEffect(()=>{
     dispatch({ type: 'FETCH_SPACES',
@@ -29,7 +30,7 @@ function Spaces(props) {
         dispatch({
         type: 'POST_SPACE',
         payload: {
-          room_name: room_name,
+          space_name: space_name,
           image_path: image_path,
           is_complete: is_complete,
           user_id: user.id
@@ -40,16 +41,16 @@ function Spaces(props) {
 
   return (
     <div>
-      <h2>{heading}</h2>
+    
 
       <form onSubmit={addSpace}>
 
       <input 
       type ="text" 
-      placeholder='Add Room'
-      name="room_name" 
-      value={room_name}
-      onChange ={(event)=>setRoom_Name(event.target.value)} />
+      placeholder='Add Space'
+      name="space_name" 
+      value={space_name}
+      onChange ={(event)=>setSpace_Name(event.target.value)} />
 
       <input 
       type ="text" 
@@ -69,8 +70,10 @@ function Spaces(props) {
       </select>  
 
       <button className="btn" type="submit" name="submit" value="Add Room ">Add Space</button> 
-
       </form>
+      <div>
+        {JSON.stringify (spaces)};
+      </div>
     </div>
   );
 }

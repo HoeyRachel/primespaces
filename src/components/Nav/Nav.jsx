@@ -28,21 +28,15 @@ function Nav() {
               Home
             </Link>
 
-            <Link className="navLink" to="/info">
-              Info Page
-            </Link>
-
-            <Link className="navLink" to="/spaces">
-              Spaces
+            <Link className="navLink" to="/userspaces">
+              My Spaces
             </Link>
 
             <LogOutButton className="navLink" />
           </>
         )}
 
-        <Link className="navLink" to="/about">
-          About
-        </Link>
+       
       </div>
     </div>
   );
