@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import {useSelector} from 'react-redux';
 import { useDispatch } from 'react-redux';
 import {useHistory} from 'react-router-dom';
-
+import { TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal, Box, Paper} from '@mui/material';
+import './Spaces.css'
 
 
 // Basic functional component structure for React with default state
@@ -16,7 +17,8 @@ function Spaces(props) {
   const [space_name, setSpace_Name] = useState('');
   const user = useSelector((store) => store.user)
   const [image_path, setImage_Path] = useState('');
-  const [is_complete, setIs_Complete] = useState('1');
+  const [space_goal, setSpace_Goal] = useState('');
+  const [is_complete, setIs_Complete] = useState('');
   const spaces = useSelector ((store) => store.spaces);
 
   useEffect(()=>{
@@ -32,7 +34,7 @@ function Spaces(props) {
         payload: {
           space_name: space_name,
           image_path: image_path,
-          is_complete: is_complete,
+          space_goal: space_goal,
           user_id: user.id
     
         }}) 
@@ -41,33 +43,47 @@ function Spaces(props) {
 
   return (
     <div>
-    
-
       <form onSubmit={addSpace}>
+      <TextField
+              className="newspacename"
+              style={{'margin-right':'30px'}}
+              label="Space Goal Name"
+              variant="outlined"
+              autoComplete= "off"
+              type="text"
+              name="spacegoalname"
+              required
+              value={space_name}
+              onChange={(event) => setSpace_Name(event.target.value)}
+            />
 
-      <input 
-      type ="text" 
-      placeholder='Add Space'
-      name="space_name" 
-      value={space_name}
-      onChange ={(event)=>setSpace_Name(event.target.value)} />
+      <TextField
+              className="newspacegoalimage"
+              style={{'margin-right':'30px'}}
+              label="Space Goal Image"
+              variant="outlined"
+              autoComplete= "off"
+              type="text"
+              name="spacegoalimage"
+              required
+              value={image_path}
+              onChange={(event) => setImage_Path(event.target.value)}
+            />
 
-      <input 
-      type ="text" 
-      placeholder='Add Image'
-      name="image_path" 
-      value={image_path}
-      onChange ={(event)=>setImage_Path(event.target.value)} />  
-
-      <select
-      type ="text" 
-      placeholder='Prime Space Achieved'
-      name="is_complete" 
-      value={is_complete}
-      onChange ={(event)=>setIs_Complete(event.target.value)}>
-      <option>Yes</option>
-      <option>No</option>   
-      </select>  
+      <TextField
+              className="newspacegoal"
+              style={{'margin-right':'60px'}}
+              label="Describe Space Goal"
+              variant="outlined"
+              autoComplete= "off"
+              type="text"
+              name="newspacegoal"
+              maxRows={4}
+              rows={5}
+              required
+              value={space_goal}
+              onChange={(event) => setSpace_Goal(event.target.value)}
+            />
 
       <button className="btn" type="submit" name="submit" value="Add Room ">Add Space</button> 
       </form>
