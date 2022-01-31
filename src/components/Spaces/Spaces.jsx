@@ -87,9 +87,7 @@ function Spaces(props) {
 
       <button className="btn" type="submit" name="submit" value="Add Room ">Add Space</button> 
       </form>
-      <div>
-        {JSON.stringify (spaces)};
-      </div>
+     
     </div>
   );
 }

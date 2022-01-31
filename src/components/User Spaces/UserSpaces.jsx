@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
+import UserSpaceList from '../UserSpaceList/UserSpaceList';
 
 
 
@@ -14,7 +15,7 @@ function UserSpaces(props) {
 
   useEffect(()=>{
     dispatch({ type: 'FETCH_SPACES',
-              payload: user.id  
+          payload: spaces.user_id
     });
   }, [])
 
@@ -22,40 +23,12 @@ function UserSpaces(props) {
     <div>
       <h2>{heading}</h2>
       <div>
-        {spaces.map( space => {
-          //maps the spaces associated with the User's ID
-            const setSpaceDetail = ()=>{
-              dispatch({
-                  type: 'SET_SPACE_ITEM',
-                  payload: {id: space.id, 
-                            user_id: space.user_id,
-                            space_name: space.space_name, 
-                            image_path: space.image_path,
-                            is_complete: space.is_complete
-                            
-                          }
-              });//end dispatch
-              
-          }//end const
-         
-          return(
+      <section className="myspaces">
+          {spaces.map(space =>(<UserSpaceList key={spaces.user_id} space={space} />))}
+        </section>  
            
-                <div >
-                  
-                      <img src={space.image_path}/>
-                     
-                          <p>{space.room_name}</p>
-                          <p> {space.is_complete} </p>
-                        <button className="btn btn_sizeSm" onClick={setSpaceDetail}>'View Room Details'</button>
-                     
-                    
-                  
-                </div>
-           
-          )
-        
-        })}          
-      </div>
+       </div>  
+       
     </div>
   );
 }
