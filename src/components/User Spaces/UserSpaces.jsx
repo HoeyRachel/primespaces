@@ -2,35 +2,42 @@ import React, { useState, useEffect } from 'react';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
 import UserSpaceList from '../UserSpaceList/UserSpaceList';
+import { Grid, Item, Typography, Box, Card, CardContent, CardActions, TextField, Button } from "@material-ui/core";
 
 
 
 function UserSpaces(props) {
   // get the Users Spaces
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('My Spaces');
-  const user = useSelector((store) => store.user);
-  const spaces = useSelector ((store) => store.spaces);
   const dispatch = useDispatch();
+  const spaces = useSelector ((store) => store.spaces);
+  const user = useSelector ((store) => store.user);
 
   useEffect(()=>{
     dispatch({ type: 'FETCH_SPACES',
-          payload: spaces.user_id
+          payload: user.id
     });
   }, [])
 
+
   return (
-    <div>
-      <h2>{heading}</h2>
-      <div>
-      <section className="myspaces">
-          {spaces.map(space =>(<UserSpaceList key={spaces.user_id} space={space} />))}
-        </section>  
-           
-       </div>  
+    <Grid container>
+     <Grid item xs ={3}>
+     </Grid>
+        <Card sx={{ maxWidth: 400 }}>
+        <CardContent>
+          <p>{spaces.user_id}</p>
+          <p>{spaces.space_name}</p>
+          <img src={spaces.image_path}></img>
+          <p> {spaces.is_complete} </p>
+          <p> {spaces.space_goal}</p>
+          </CardContent>
+        </Card>
+    </Grid>
+  ); 
        
-    </div>
-  );
+    
+  
 }
 
 export default UserSpaces;

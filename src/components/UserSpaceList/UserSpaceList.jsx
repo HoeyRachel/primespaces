@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import { Grid, Item, Typography, Box, Card, CardContent, CardActions, TextField, Button } from "@material-ui/core";
 
 // Basic functional component structure for React with default state
@@ -9,6 +10,14 @@ function UserSpaceList(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
+  const dispatch = useDispatch();
+  const spaces = useSelector ((store) => store.spaces);
+
+  useEffect(()=>{
+    dispatch({ type: 'FETCH_SPACES',
+          payload: spaces.user_id
+    });
+  }, [])
 
 
   return (
@@ -17,10 +26,11 @@ function UserSpaceList(props) {
      </Grid>
         <Card sx={{ maxWidth: 400 }}>
         <CardContent>
-          <p>{props.space.space_name}</p>
-          <p>{props.space.image_path}</p>
-          <p> {props.space.is_complete} </p>
-          <p> {props.space.space_goal}</p>
+          <p>{props.spaces.user_id}</p>
+          <p>{props.spaces.space_name}</p>
+          <img src={props.spaces.image_path}></img>
+          <p> {props.spaces.is_complete} </p>
+          <p> {props.spaces.space_goal}</p>
           </CardContent>
         </Card>
     </Grid>

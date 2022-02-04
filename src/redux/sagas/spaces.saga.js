@@ -2,9 +2,10 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_USER" actions
-function* fetchSpaces() {
+function* fetchSpaces(action) {
   try {
-    const response = yield axios.get('/api/spaces');
+    const response = yield axios.get('/api/spaces/userspaces', {params:{id:action.payload}});
+    console.log ('response.data', response.data)
     yield put({ type: 'SET_SPACES', payload: response.data });
   } catch (error) {
     console.log('User get request failed', error);

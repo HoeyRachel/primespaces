@@ -5,11 +5,12 @@ const router = express.Router();
 /**
  * GET route template
  */
- router.get('/', (req, res) => {
-  console.log ('in router.spaces GET:');
-  const query = `SELECT * FROM spaces`;
+ router.get('/userspaces', (req, res) => {
+  console.log ('in router.spaces GET:', req.query);
+  const query = `SELECT * FROM spaces WHERE user_id = ${req.query.id}`;
   pool.query(query)
     .then( result => {
+      console.log ('spaces return data:', result.rows)
       res.send(result.rows);
     })
     .catch(err => {
