@@ -26,11 +26,16 @@ function UserSpaces(props) {
      </Grid>
         <Card sx={{ maxWidth: 400 }}>
         <CardContent>
-          <p>{spaces.user_id}</p>
-          <p>{spaces.space_name}</p>
-          <img src={spaces.image_path}></img>
-          <p> {spaces.is_complete} </p>
-          <p> {spaces.space_goal}</p>
+          
+          {spaces.map (space => 
+          <span>
+          <p>{space.space_name}</p>
+          <img src={space.image_path}></img>
+          <p> {space.is_complete} </p>
+          <p> {space.space_goal}</p>
+          </span>
+          )}
+          
           </CardContent>
         </Card>
     </Grid>
