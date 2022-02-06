@@ -22,23 +22,23 @@ function UserSpaces(props) {
 
   return (
     <Grid container>
-     <Grid item xs ={3}>
-     </Grid>
+      {spaces.map (space => 
+    //  <Grid item xs ={3}>
+    //  </Grid>
         <Card sx={{ maxWidth: 400 }}>
-        <CardContent>
+        <CardContent >
           
-          {spaces.map (space => 
-          <span>
           <p>{space.space_name}</p>
-          <img src={space.image_path}></img>
+          <img src={space.image_path} className='cardImage'></img>
           <p> {space.is_complete} </p>
           <p> {space.space_goal}</p>
-          </span>
-          )}
           
+         
           </CardContent>
         </Card>
+           )}
     </Grid>
+  
   ); 
        
     

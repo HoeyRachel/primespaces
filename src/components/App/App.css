@@ -112,3 +112,9 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+.cardImage{
+  height: 350px;
+  width: 300px !important;
+  object-fit: cover;
+}
