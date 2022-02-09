@@ -12,12 +12,35 @@ function UserSpaces(props) {
   const dispatch = useDispatch();
   const spaces = useSelector ((store) => store.spaces);
   const user = useSelector ((store) => store.user);
+  const [checked, setChecked] = useState(false);
 
   useEffect(()=>{
     dispatch({ type: 'FETCH_SPACES',
           payload: user.id
     });
   }, [])
+
+  // const valueChange = () => {
+  //   setChecked(!checked);
+  //   return checked;
+  // }
+
+  const deleteSpace=()=>{
+    console.log('in deleteSpaceFunction:', spaces.id);
+    dispatch (
+      { type: 'DELETE_SPACE', 
+      payload: spaces.id}
+    )
+  }
+
+  // const handleCheckboxChange = (id) => {
+  //   console.log('checkbox changed:', id);
+
+  //   // attendanceForEvent.includes(id) ? attendanceForEvent.splice(attendanceForEvent.indexOf(id), 1) 
+  //   // : setAttendanceForEvent([...attendanceForEvent, id]);
+    
+  // }
+
 
 
   return (
@@ -32,7 +55,12 @@ function UserSpaces(props) {
           <img src={space.image_path} className='cardImage'></img>
           <p> {space.is_complete} </p>
           <p> {space.space_goal}</p>
-          
+          <input type='checkbox' id='spaceCompleted' className='spaceCompletedCheckbox' value='completed' />
+          {/* onChange={handleCheckboxChange(spaces.id)} */}
+          <div >
+            Space Completed?
+          </div>
+          <Button className='deleteSpaceButton' onClick={deleteSpace}> X </Button>
          
           </CardContent>
         </Card>

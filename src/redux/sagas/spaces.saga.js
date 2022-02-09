@@ -21,8 +21,9 @@ function* postSpaces(action) {
   }
 }
 
-function *deleteSpace( action ){
-  console.log( 'in *deleteSaga:', action.payload );
+
+function* deleteSpace( action ){
+  console.log( 'in *deleteSpaceSaga:', action);
   try {
     const response = yield axios.delete(`/api/spaces/delete/${action.payload}`);
     yield put({type: 'FETCH_SPACES', payload: store.user.id})

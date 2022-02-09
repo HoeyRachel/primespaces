@@ -35,11 +35,12 @@ router.post('/', (req, res) => {
   })
 });
 
+
 router.delete('/delete/:id', (req, res) => {
-  console.log("delete space", req.params.id)
-  const deleteSpace = `DELETE FROM spaces WHERE id=$1`;
+  console.log("router DELETE spaces", req.params.id)
+  const deleteSpaces = `DELETE FROM spaces WHERE id=$1`;
   values= [req.params.id]
-  pool.query(deleteSpace, values).then((result) => {
+  pool.query(deleteSpaces, values).then((result) => {
       res.sendStatus(200);
   }).catch((error) => {
       console.log('Error DELETE /api/spaces', error);

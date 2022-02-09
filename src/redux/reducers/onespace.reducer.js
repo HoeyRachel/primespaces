@@ -1,0 +1,12 @@
+const onespaceReducer = (state = [], action) => {
+  switch (action.type) {
+    case 'SET_SPACES':
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+// user will be on the redux state at:
+// state.user
+export default onespaceReducer;
