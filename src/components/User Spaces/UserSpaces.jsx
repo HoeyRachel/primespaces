@@ -25,14 +25,14 @@ function UserSpaces(props) {
   //   return checked;
   // }
 
-  const deleteSpace=()=>{
-    console.log('in deleteSpaceFunction:', spaces.id);
+  const deleteSpace=(id)=>{
+    console.log('in deleteSpaceFunction:', id);
     dispatch (
       { type: 'DELETE_SPACE', 
-      payload: spaces.id}
+      payload: id}
     )
   }
-
+  
   // const handleCheckboxChange = (id) => {
   //   console.log('checkbox changed:', id);
 
@@ -60,7 +60,7 @@ function UserSpaces(props) {
           <div >
             Space Completed?
           </div>
-          <Button className='deleteSpaceButton' onClick={deleteSpace}> X </Button>
+          <Button className='deleteSpaceButton' onClick={ ()=> deleteSpace( space.id ) }> X </Button>
          
           </CardContent>
         </Card>

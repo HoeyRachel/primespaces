@@ -32,6 +32,9 @@ function* deleteSpace( action ){
   }
 }
 
+function* deleteTest( action ){
+  console.log( 'in * deleteTest Saga:', action);}
+
 function* spacesSaga() {
   yield takeLatest('FETCH_SPACES', fetchSpaces);
   yield takeLatest('POST_SPACE', postSpaces);
