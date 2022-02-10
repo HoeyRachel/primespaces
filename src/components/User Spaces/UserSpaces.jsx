@@ -12,7 +12,7 @@ function UserSpaces(props) {
   const dispatch = useDispatch();
   const spaces = useSelector ((store) => store.spaces);
   const user = useSelector ((store) => store.user);
-  const [checked, setChecked] = useState(false);
+  const [completed, setIsCompleted] = useState(false);
 
   useEffect(()=>{
     dispatch({ type: 'FETCH_SPACES',
@@ -20,10 +20,14 @@ function UserSpaces(props) {
     });
   }, [])
 
-  // const valueChange = () => {
-  //   setChecked(!checked);
-  //   return checked;
-  // }
+  const handleCheckboxChange = (id) => {
+    console.log ('in HandleCheckboxChange', id);
+    setIsCompleted(!completed);
+    dispatch ({
+      type: 'UPDATE_SPACE',
+      payload: id
+    })
+  }
 
   const deleteSpace=(id)=>{
     console.log('in deleteSpaceFunction:', id);
@@ -56,8 +60,9 @@ function UserSpaces(props) {
           <p> {space.is_complete} </p>
           <p> {space.space_goal}</p>
         <div>
-          <input type='checkbox' id='spaceCompleted' className='spaceCompletedCheckbox' value='completed' label='Space Completed?' />
-          {/* onChange={handleCheckboxChange(spaces.id)} */}
+          <input type='checkbox' id='spaceCompleted' className='spaceCompletedCheckbox' value='completed' label='Space Completed?'
+          onChange={()=> handleCheckboxChange(space.id)} />
+          
           <span>Space Completed?</span>
         </div>
         <div>

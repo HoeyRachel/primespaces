@@ -21,6 +21,15 @@ function* postSpaces(action) {
   }
 }
 
+function* updateSpace( action ){
+  console.log( 'in *updateSpaceSaga:', action);
+  // try {
+  //   const response = yield axios.delete(`/api/spaces/delete/${action.payload}`);
+  //   yield put({type: 'FETCH_SPACES', payload:response.data[0].user_id})
+  // } catch (err) {
+  //     console.log('error:', err);
+  // }
+}
 
 function* deleteSpace( action ){
   console.log( 'in *deleteSpaceSaga:', action);
@@ -37,6 +46,7 @@ function* spacesSaga() {
   yield takeLatest('FETCH_SPACES', fetchSpaces);
   yield takeLatest('POST_SPACE', postSpaces);
   yield takeLatest('DELETE_SPACE', deleteSpace);
+  yield takeLatest('UPDATE_SPACE', updateSpace);
 }
 
 export default spacesSaga;
