@@ -35,6 +35,7 @@ function Spaces(props) {
           space_name: space_name,
           image_path: image_path,
           space_goal: space_goal,
+          is_complete: false,
           user_id: user.id
     
         }}) 

@@ -26,14 +26,12 @@ function* deleteSpace( action ){
   console.log( 'in *deleteSpaceSaga:', action);
   try {
     const response = yield axios.delete(`/api/spaces/delete/${action.payload}`);
-    yield put({type: 'FETCH_SPACES', payload: store.user.id})
+    yield put({type: 'FETCH_SPACES', payload:response.data[0].user_id})
   } catch (err) {
       console.log('error:', err);
   }
 }
 
-function* deleteTest( action ){
-  console.log( 'in * deleteTest Saga:', action);}
 
 function* spacesSaga() {
   yield takeLatest('FETCH_SPACES', fetchSpaces);
