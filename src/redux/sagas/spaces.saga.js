@@ -24,7 +24,7 @@ function* postSpaces(action) {
 function* updateSpace( action ){
   console.log( 'in *updateSpaceSaga:', action);
   try {
-    const response = yield axios.put(`/api/spaces/${action.payload.id}`);
+    const response = yield axios.put(`/api/spaces/${action.payload}`);
     yield put({type: 'FETCH_SPACES', payload:response.data[0].user_id})
   } catch (err) {
       console.log('error:', err);

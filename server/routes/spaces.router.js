@@ -35,6 +35,22 @@ router.post('/', (req, res) => {
   })
 });
 
+router.put('/:id', async (req, res) => {
+
+  try {
+    const {id} = req.params
+    const {is_complete} = req.body
+    const updateIsCompleteQuery =  `UPDATE spaces
+    SET is_complete = $1
+    WHERE id = $2 RETURNING id;`
+    const response = await pool.query(updateIsCompleteQuery, [is_complete,id])
+    res.send(response.rows).status(201)
+  } catch (error) {
+    console.log('Update event note error ', error);
+      res.sendStatus(500);
+  }
+});
+
 
 router.delete('/delete/:id', (req, res) => {
   console.log("router DELETE spaces", req.params.id)
