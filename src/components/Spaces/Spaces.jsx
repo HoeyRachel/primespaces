@@ -18,8 +18,8 @@ function Spaces(props) {
   const user = useSelector((store) => store.user)
   const [image_path, setImage_Path] = useState('');
   const [space_goal, setSpace_Goal] = useState('');
-  const [is_complete, setIs_Complete] = useState('');
   const spaces = useSelector ((store) => store.spaces);
+  const history = useHistory();
 
   useEffect(()=>{
     dispatch({ type: 'FETCH_SPACES',
@@ -39,6 +39,7 @@ function Spaces(props) {
           user_id: user.id
     
         }}) 
+        history.push("/userspaces");
       };
 
 
@@ -88,6 +89,7 @@ function Spaces(props) {
 
       <button className="btn" type="submit" name="submit" value="Add Room ">Add Space</button> 
       </form>
+
      
     </div>
   );

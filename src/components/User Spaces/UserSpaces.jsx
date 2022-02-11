@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
 import UserSpaceList from '../UserSpaceList/UserSpaceList';
 import { Grid, Item, Typography, Box, Card, CardContent, CardActions, TextField, Button } from "@material-ui/core";
-
+import './UserSpaces.css';
 
 
 function UserSpaces(props) {
@@ -53,12 +53,10 @@ function UserSpaces(props) {
     //  <Grid item xs ={3}>
     //  </Grid>
         <Card sx={{ maxWidth: 400 }}>
-        <CardContent >
-          
-          <p>{space.space_name}</p>
+        <CardContent className='roomCards' >
+          <h3 className='cardTitle'>{space.space_name}</h3>
           <img src={space.image_path} className='cardImage'></img>
-          <p> {space.is_complete} </p>
-          <p> {space.space_goal}</p>
+          <p className='cardGoal'> {space.space_goal}</p>
         <div>
           <input type='checkbox' id='spaceCompleted' className='spaceCompletedCheckbox' value='completed' label='Space Completed?'
           onChange={()=> handleCheckboxChange(space.id)} />
@@ -66,8 +64,7 @@ function UserSpaces(props) {
           <span>Space Completed?</span>
         </div>
         <div>
-          <Button className='deleteSpaceButton' onClick={ ()=> deleteSpace( space.id ) }> X </Button>
-          <span>Delete Space</span>
+          <Button className='deleteSpaceButton_sizeSm' onClick={ ()=> deleteSpace( space.id ) }> Delete Space </Button>
         </div>
           </CardContent>
         </Card>
