@@ -15,7 +15,8 @@ function* fetchSpaces(action) {
 function* postSpaces(action) {
   try {
     const spaces = yield axios.post('/api/spaces', action.payload);
-    yield put({ type: 'FETCH_SPACES', payload: spaces.data });
+    console.log ('in PostSpaces:', response.data[0].spaces_id)
+    yield put({ type: 'FETCH_SPACES', payload:  response.data[0].spaces_id});
   } catch (error) {
     console.log('Spaces POST request failed', error);
   }
@@ -25,7 +26,7 @@ function* updateSpace( action ){
   console.log( 'in *updateSpaceSaga:', action);
   try {
     const response = yield axios.put(`/api/spaces/${action.payload}`);
-    yield put({type: 'FETCH_SPACES', payload:response.data[0].user_id})
+    yield put({type: 'FETCH_SPACES', payload:response.data[0].spaces_id})
   } catch (err) {
       console.log('error:', err);
   }
@@ -35,7 +36,7 @@ function* deleteSpace( action ){
   console.log( 'in *deleteSpaceSaga:', action);
   try {
     const response = yield axios.delete(`/api/spaces/delete/${action.payload}`);
-    yield put({type: 'FETCH_SPACES', payload:response.data[0].user_id})
+    yield put({type: 'FETCH_SPACES', payload:response.data[0].spaces_id})
   } catch (err) {
       console.log('error:', err);
   }
