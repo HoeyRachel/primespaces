@@ -36,7 +36,8 @@ function* deleteSpace( action ){
   console.log( 'in *deleteSpaceSaga:', action);
   try {
     const response = yield axios.delete(`/api/spaces/delete/${action.payload}`);
-    yield put({type: 'FETCH_SPACES', payload:response.data[0].spaces_id})
+    console.log ('in delete Return GET:', response.data[0].spaces_id)
+    yield put({type: 'FETCH_SPACES', payload: response.data[0].spaces_id})
   } catch (err) {
       console.log('error:', err);
   }

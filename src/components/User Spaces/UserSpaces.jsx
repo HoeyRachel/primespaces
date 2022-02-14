@@ -58,10 +58,19 @@ function UserSpaces(props) {
           <img src={space.image_path} className='cardImage'></img>
           <p className='cardGoal'> {space.space_goal}</p>
         <div>
+          {space.is_complete === true?
+          <div className='truecheckbox'> 
+          <input type='checkbox' checked='checked' id='spaceCompleted' className='spaceCompletedCheckbox' value='completed' label='Space Completed?'
+          onChange={()=> handleCheckboxChange(space.id)} /> 
+          <span>Space Completed?</span>
+          </div>
+          :
+          <div className='falsecheckbox'>
           <input type='checkbox' id='spaceCompleted' className='spaceCompletedCheckbox' value='completed' label='Space Completed?'
           onChange={()=> handleCheckboxChange(space.id)} />
-          
           <span>Space Completed?</span>
+          </div>
+            }
         </div>
         <div>
           <Button className='deleteSpaceButton_sizeSm' onClick={ ()=> deleteSpace( space.id ) }> Delete Space </Button>
