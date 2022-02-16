@@ -12,7 +12,7 @@ function UserSpaces(props) {
   const dispatch = useDispatch();
   const spaces = useSelector ((store) => store.spaces);
   const user = useSelector ((store) => store.user);
-  const [completed, setIsCompleted] = useState(false);
+  const [completed, setIsCompleted] = useState(true);
 
   useEffect(()=>{
     dispatch({ type: 'FETCH_SPACES',
@@ -56,7 +56,7 @@ function UserSpaces(props) {
           {space.is_complete === true?
           <div className='truecheckbox'> 
           <input type='checkbox' checked='checked' id='spaceCompleted' className='spaceCompletedCheckbox' value='completed' label='Space Completed?'
-          onChange={()=> handleCheckboxChange(space.id)} /> 
+           /> 
           <span>Space Completed?</span>
           </div>
           :
