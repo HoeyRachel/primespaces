@@ -44,6 +44,7 @@ router.put('/:id', async (req, res) => {
     SET is_complete = $1
     WHERE id = $2 RETURNING id;`
     const response = await pool.query(updateIsCompleteQuery, [is_complete,id])
+    console.log ('in router.PUT:',req.body)
     res.send(response.rows).status(201)
   } catch (error) {
     console.log('Update event note error ', error);

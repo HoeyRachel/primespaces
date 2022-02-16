@@ -25,7 +25,11 @@ function UserSpaces(props) {
     setIsCompleted(!completed);
     dispatch ({
       type: 'UPDATE_SPACE',
-      payload: id
+      payload: {
+        id:id,
+        is_complete: completed
+      }
+
     })
   }
 
@@ -37,15 +41,6 @@ function UserSpaces(props) {
     )
   }
   
-  // const handleCheckboxChange = (id) => {
-  //   console.log('checkbox changed:', id);
-
-  //   // attendanceForEvent.includes(id) ? attendanceForEvent.splice(attendanceForEvent.indexOf(id), 1) 
-  //   // : setAttendanceForEvent([...attendanceForEvent, id]);
-    
-  // }
-
-
 
   return (
     <Grid container>

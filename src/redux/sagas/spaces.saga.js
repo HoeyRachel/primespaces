@@ -25,8 +25,9 @@ function* postSpaces(action) {
 function* updateSpace( action ){
   console.log( 'in *updateSpaceSaga:', action);
   try {
-    const response = yield axios.put(`/api/spaces/${action.payload}`);
-    yield put({type: 'FETCH_SPACES', payload:response.data[0].spaces_id})
+    const response = yield axios.put(`/api/spaces/${action.payload.id}`, action.payload);
+    console.log ('updateSpace Sage:', action.payload)
+    yield put({type: 'FETCH_SPACES'})
   } catch (err) {
       console.log('error:', err);
   }
@@ -37,7 +38,7 @@ function* deleteSpace( action ){
   try {
     const response = yield axios.delete(`/api/spaces/delete/${action.payload}`);
     console.log ('in delete Return GET:', response.data[0].spaces_id)
-    yield put({type: 'FETCH_SPACES', payload: response.data[0].spaces_id})
+    yield put({type: 'FETCH_SPACES', payload:response.data[0].spaces_id})
   } catch (err) {
       console.log('error:', err);
   }
