@@ -42,12 +42,19 @@ function UserSpaces(props) {
   
 
   return (
-    <Grid container>
+    <Grid 
+      container
+      spacing={0}
+      // direction="column"
+      // alignItems="center"
+      justifyContent="center"
+      // style={{ minHeight: '100vh' }}
+      >
       {spaces.map (space => 
     //  <Grid item xs ={3}>
     //  </Grid>
         <Card sx={{ maxWidth: 400 }}>
-        <CardContent className='roomCards' >
+        <CardContent className='roomcards' >
           <h3 className='cardTitle'>{space.space_name}</h3>
           <img src={space.image_path} className='cardImage'></img>
           <p className='cardGoal'> {space.space_goal}</p>
@@ -67,7 +74,7 @@ function UserSpaces(props) {
             }
         </div>
         <div>
-          <Button className='deleteSpaceButton_sizeSm' onClick={ ()=> deleteSpace( space.id ) }> Delete Space </Button>
+          <Button className='deletespacebtn' onClick={ ()=> deleteSpace( space.id ) }> Delete Space </Button>
         </div>
           </CardContent>
         </Card>

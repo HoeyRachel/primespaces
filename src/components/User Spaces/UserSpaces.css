@@ -1,4 +1,4 @@
-.deleteSpaceButton_sizeSm{
+.deletespacebtn{
     display: inline-block;
     font-family: 'Roboto', sans-serif;
     padding: 10px 15px;
@@ -12,13 +12,16 @@
     cursor: pointer;
   }
 
-  .deleteSpaceButton_sizeSm:hover {
+  .deletespacebtn:hover {
     background-color: #020402;
     text-decoration: none;
+    
   }
-.roomCards{
+.roomcards{
     border: 2px solid #020402;
     border-radius: 8px;
+    align-items: center;
+    position: relative;
     display: flex;
     flex-direction: column;
     /* padding: 10px 19px; */
