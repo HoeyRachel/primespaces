@@ -7,20 +7,28 @@
 .mainDivHomePageCol1 {
     width: 400px;
     height: 500px;
-    line-height: 50px;
-    text-align: center;
     border: 3px solid;
     border-color: #020402;
     background-color: #252627;
-    color: #C8963E;
+    border-radius: 5%;
 }
 
 .mainDivHomePageCol2 {
     width: 400px;
-    line-height: 50px;
-    text-align: center;
     border-color: #020402;
     background-color: #252627;
-    color: #C8963E;
     border: 3px solid;
+    border-radius: 5%;
+}
+
+.col1text{
+    text-align: center;
+    color: #C8963E;
+    padding-top: 50%;
+}
+
+.col2text{
+    padding-top: 50%;
+    text-align: center;
+    color: #C8963E;
 }

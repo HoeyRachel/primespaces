@@ -25,10 +25,14 @@ function UserPage() {
       <main className="mainDivHomePage" >
           
           <div className ="mainDivHomePageCol1" onClick={goToSpaces}>
-            <h1>Add a Space</h1>
+            <div className='col1text'>
+              <h1>Add a Space</h1>
+            </div>
           </div>
           <div className ="mainDivHomePageCol2" onClick={goToUserSpaces}>
-            <h1>My Spaces</h1>
+            <div className='col2text'>
+              <h1>My Spaces</h1>
+            </div>
           </div>
       </main>
     </div>
