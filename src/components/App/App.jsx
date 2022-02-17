@@ -16,9 +16,8 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Spaces from '../Spaces/Spaces';
 import UserSpaces from '../User Spaces/UserSpaces';
-
 import './App.css';
-import UserSpaceList from '../UserSpaceList/UserSpaceList';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -50,16 +49,7 @@ function App() {
             path="/user"
           >
             <UserPage />
-          </ProtectedRoute>
-          
-          <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
-            exact
-            path="/userspacelist"
-          >
-            <UserSpaceList />
-          </ProtectedRoute>
-         
+          </ProtectedRoute> 
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage

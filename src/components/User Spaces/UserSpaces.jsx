@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
-import UserSpaceList from '../UserSpaceList/UserSpaceList';
 import { Grid, Item, Typography, Box, Card, CardContent, CardActions, TextField, Button } from "@material-ui/core";
 import './UserSpaces.css';
 

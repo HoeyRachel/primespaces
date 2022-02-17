@@ -28,6 +28,10 @@ function Nav() {
               Home
             </Link>
 
+            <Link className="navLink" to="/spaces">
+             Add Spaces
+            </Link>
+
             <Link className="navLink" to="/userspaces">
               My Spaces
             </Link>

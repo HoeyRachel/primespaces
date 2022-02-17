@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import { TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal, Box, Paper} from '@mui/material';
 import './Spaces.css'
+import SpacesItem from '../SpacesItem/SpacesItem';
 
 
 // Basic functional component structure for React with default state
@@ -46,7 +47,7 @@ function Spaces(props) {
   return (
     <div>
       <form onSubmit={addSpace}>
-      <TextField
+        <TextField
               className="newspacename"
               style={{'margin-right':'30px'}}
               label="Space Goal Name"
@@ -59,7 +60,7 @@ function Spaces(props) {
               onChange={(event) => setSpace_Name(event.target.value)}
             />
 
-      <TextField
+        <TextField
               className="newspacegoalimage"
               style={{'margin-right':'30px'}}
               label="Space Goal Image"
@@ -72,7 +73,7 @@ function Spaces(props) {
               onChange={(event) => setImage_Path(event.target.value)}
             />
 
-      <TextField
+        <TextField
               className="newspacegoal"
               style={{'margin-right':'60px'}}
               label="Describe Space Goal"
@@ -86,6 +87,10 @@ function Spaces(props) {
               value={space_goal}
               onChange={(event) => setSpace_Goal(event.target.value)}
             />
+
+        {spaces.map(space => 
+            (<SpacesItem key={space.id} space={space} />) 
+        )}  
 
       <button className="btn" type="submit" name="submit" value="Add Room ">Add Space</button> 
       </form>
