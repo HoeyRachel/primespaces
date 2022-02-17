@@ -1,3 +1,28 @@
-.newspacegoal{
-    width: 100%;
+
+
+.spacegoalinputdiv{
+    padding-top: 1%;
+    text-align: center;
+}
+
+.spaceimageinputdiv{
+    padding-top: 1%;
+    text-align: center;
+}
+.spacenameinputdiv{
+    padding-top: 1%;
+    text-align: center;
+}
+
+
+.addspaceheaderdiv{
+    padding-top: 1%;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.buttondiv{
+    padding-top: 1%;
+    text-align: center;
+    margin-right: 30px;
 }

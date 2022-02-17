@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import { TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal, Box, Paper} from '@mui/material';
 import './Spaces.css'
-import SpacesItem from '../SpacesItem/SpacesItem';
+
 
 
 // Basic functional component structure for React with default state
@@ -47,10 +47,14 @@ function Spaces(props) {
   return (
     <div>
       <form onSubmit={addSpace}>
-        <TextField
-              className="newspacename"
-              style={{'margin-right':'30px'}}
-              label="Space Goal Name"
+      <div className='addspaceheaderdiv'>
+        <h2>Create a New Space Goal</h2>
+      </div>
+        <div className='spacenameinputdiv'>
+          <TextField
+              className="spacegoalname"
+              style={{'margin-right':'30px', 'width': '400px'}}
+              label="enter space name"
               variant="outlined"
               autoComplete= "off"
               type="text"
@@ -59,11 +63,12 @@ function Spaces(props) {
               value={space_name}
               onChange={(event) => setSpace_Name(event.target.value)}
             />
-
-        <TextField
+        </div>
+        <div className='spaceimageinputdiv'>
+          <TextField
               className="newspacegoalimage"
-              style={{'margin-right':'30px'}}
-              label="Space Goal Image"
+              style={{'margin-right':'30px', 'width': '400px'}}
+              label="enter space image url"
               variant="outlined"
               autoComplete= "off"
               type="text"
@@ -72,27 +77,27 @@ function Spaces(props) {
               value={image_path}
               onChange={(event) => setImage_Path(event.target.value)}
             />
-
-        <TextField
-              className="newspacegoal"
-              style={{'margin-right':'60px'}}
-              label="Describe Space Goal"
+        </div>
+        <div className='spacegoalinputdiv'>
+          <TextField
+              className="spacegoaldescription"
+              style={{'margin-right':'30px', 'width': '400px'}}
+              label="enter space goal description"
               variant="outlined"
               autoComplete= "off"
               type="text"
               name="newspacegoal"
+              multiline
               maxRows={4}
               rows={5}
               required
               value={space_goal}
               onChange={(event) => setSpace_Goal(event.target.value)}
             />
-
-        {spaces.map(space => 
-            (<SpacesItem key={space.id} space={space} />) 
-        )}  
-
-      <button className="btn" type="submit" name="submit" value="Add Room ">Add Space</button> 
+        </div>
+        <div className='buttondiv'>
+          <button className="btn" type="submit" name="submit" value="Add Room ">Add Space</button> 
+        </div>
       </form>
 
      
