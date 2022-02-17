@@ -36,9 +36,9 @@ function* updateSpace( action ){
 function* deleteSpace( action ){
   console.log( 'in *deleteSpaceSaga:', action);
   try {
-    const response = yield axios.delete(`/api/spaces/delete/${action.payload}`);
-    console.log ('in delete Return GET:', response.data)
-    yield put({type: 'FETCH_SPACES', payload:response.data})
+    const response = yield axios.delete(`/api/spaces/delete/${action.payload.space_id}`);
+    console.log ('in delete Return GET:', response.data[0])
+    yield put({type: 'FETCH_SPACES', payload:action.payload.user_id})
   } catch (err) {
       console.log('error:', err);
   }

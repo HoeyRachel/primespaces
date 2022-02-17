@@ -36,7 +36,10 @@ function UserSpaces(props) {
     console.log('in deleteSpaceFunction:', id);
     dispatch (
       { type: 'DELETE_SPACE', 
-      payload: id}
+      payload: {space_id: id,
+      user_id: user.id}
+    }
+
     )
   }
   
