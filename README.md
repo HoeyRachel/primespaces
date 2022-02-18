@@ -1,4 +1,3 @@
-![License](https://img.shields.io/github/license/HoeyRachel/https://github.com/HoeyRachel/primespaces.svg?style=for-the-badge) ![Repo Size](https://img.shields.io/github/languages/code-size/HoeyRachel/https://github.com/HoeyRachel/primespaces.svg?style=for-the-badge) ![TOP_LANGUAGE](https://img.shields.io/github/languages/top/HoeyRachel/https://github.com/HoeyRachel/primespaces.svg?style=for-the-badge) ![FORKS](https://img.shields.io/github/forks/HoeyRachel/https://github.com/HoeyRachel/primespaces.svg?style=for-the-badge&social) ![Stars](https://img.shields.io/github/stars/HoeyRachel/https://github.com/HoeyRachel/primespaces.svg?style=for-the-badge)
     
 # Prime Spaces
 
